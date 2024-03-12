@@ -3,7 +3,7 @@ import * as UserModel from "../models/user";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = process.env.ACCESS_TOKEN_SECRET;
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
@@ -33,7 +33,6 @@ export const loginUser = async (req: Request, res: Response) => {
     if (!user) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-    console.log(user.passwordHash);
 
     // Compare the password
     const isMatch = await bcrypt.compare(password, user.password);
@@ -76,7 +75,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
     res.json({ message: "Login succesful", accessToken, refreshToken });
   } catch (error) {
-    res.status(500).json({ error: "Error logging in" });
+    res.status(500).json({ error: "Error logging in", message: error });
   }
 };
 
@@ -97,12 +96,13 @@ export const refreshAccessToken = async (req: Request, res: Response) => {
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET
     ) as jwt.JwtPayload;
-
+    
     const storedRefreshToken = await UserModel.getRefreshToken(payload.userId);
 
     // If the refresh token is not valid
     if (refreshToken !== storedRefreshToken) {
       return res.status(401).json({ error: "Invalid refresh token" });
+      
     }
 
     // Create a new access token
@@ -118,6 +118,6 @@ export const refreshAccessToken = async (req: Request, res: Response) => {
     );
     res.json({ accessToken });
   } catch (error) {
-    return res.status(401).json({ error: "Invalid refresh token" });
+    return res.status(401).json({ error: "Error refreshing token" });
   }
 };
