@@ -17,7 +17,7 @@ export const createUser = async (user: User) => {
 
 // Refresh auth token for user in database
 export const setRefreshToken = async (userId: number, refreshToken: string) => {
-  await pool.query("UPDATE users SET refresh_token = $1 WHERE id = $2", [
+  await pool.query("UPDATE users SET refresh_token = $1 WHERE user_id = $2", [
     refreshToken,
     userId,
   ]);
@@ -26,7 +26,7 @@ export const setRefreshToken = async (userId: number, refreshToken: string) => {
 // Get refresh token for user from database
 export const getRefreshToken = async (userId: number) => {
   const result = await pool.query(
-    "SELECT refresh_token FROM users WHERE id = $1",
+    "SELECT refresh_token FROM users WHERE user_id = $1",
     [userId]
   );
   return result.rows[0]?.refresh_token;
