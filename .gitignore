@@ -1,0 +1,117 @@
+# Archivos y directorios generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Directorio de dependencias
+/node_modules
+
+# Archivos de compilación
+/dist
+/build
+
+# Archivos de configuración local
+.env
+
+# Logs y archivos temporales
+*.log
+*.tmp
+
+# Archivos de respaldo
+*.bak
+*.swp
+
+# Archivos de caché
+.cache
+
+# Archivos de IDE
+.idea
+.vscode
+# Archivos de configuración de Visual Studio Code
+.vscode
+
+# Archivos de configuración de IntelliJ IDEA
+.idea
+
+# Archivos de configuración de Eclipse
+.classpath
+.project
+.settings
+
+# Archivos de configuración de NetBeans
+nbproject/private
+
+# Archivos de configuración de Sublime Text
+.sublime-project
+.sublime-workspace
+
+# Archivos de configuración de Xcode
+*.xcworkspace
+*.xcuserstate
+*.xcscmblueprint
+
+# Archivos de configuración de Android Studio
+*.iml
+.idea_modules
+
+# Archivos de configuración de Maven
+target/
+
+# Archivos de configuración de Gradle
+.gradle
+build/
+
+# Archivos de configuración de npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de configuración de TypeScript
+*.tsbuildinfo
+
+# Archivos de configuración de Python
+*.pyc
+__pycache__/
+
+# Archivos de configuración de Ruby
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Archivos de configuración de Node.js
+node_modules/
+*.log
+.pnp
+.pnp.js
+
+# Archivos de configuración de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Archivos de configuración de Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Archivos de configuración de Linux
+*~
+
+# Archivos de configuración de Vim
+*.swp
+*.swo
+*.swn
